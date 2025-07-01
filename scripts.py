@@ -4,10 +4,7 @@ from random import choice
 
 
 def get_student(student_name):
-    student = Schoolkid.objects.filter(full_name__contains=student_name).first()
-    if not student:
-        raise ValueError(f"Ученик '{student_name}' не найден")
-    return student
+    return Schoolkid.objects.get(full_name=student_name)
 
 
 def get_last_lesson(student, subject_title):
